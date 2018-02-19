@@ -47,10 +47,6 @@ void drawTimeStamp() {
 
   //---------------------------------------------------------------------------------
   // Draw graph for amplitude
-  r=(50+norm(newValue, 0, maxValue)*255*2);
-  g=(50+norm(newValue, 0, maxValue)*norm(newValue, 0, maxValue)*255);
-  b=(70+norm(newValue, 0, maxValue)*(-255));
-  w=(norm(newValue, 0, maxValue)*norm(newValue, 0, maxValue)*255*2);
 
   noStroke();
   float r_, g_, b_, w_;
@@ -59,12 +55,11 @@ void drawTimeStamp() {
   int ampY;
   for (int vLoc = 0; vLoc < resolution; vLoc++) {
 
-    r_=(50+norm(vLoc, 0, resolution)*255*2);
-    g_=(50+norm(vLoc, 0, resolution)*norm(vLoc, 0, resolution)*255);
-    b_=(70+norm(vLoc, 0, resolution)*(-255));
-    w_=(norm(vLoc, 0, resolution)*norm(vLoc, 0, resolution)*255*2);
+    r_ = constrain(50+norm(vLoc, 0, resolution)*(370), 0, 255);
+    g_ = constrain(50+norm(vLoc, 0, resolution)*norm(vLoc, 0, resolution)*220, 0, 255);
+    b_= constrain((70+norm(vLoc, 0, resolution)*(resolution/2-vLoc)), 0, 255);
 
-    fill(constrain((r_+w_), 0, 255), constrain((g_+w_), 0, 255), constrain((b_+w_), 0, 255));
+    fill(color(r_, g_, b_));
     ampY = round(( height - (height-(graphStartY+resolution*step-step)))- (vLoc * step));
     rect(ampX, ampY, margin, step);
   } 

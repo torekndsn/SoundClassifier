@@ -42,14 +42,13 @@ void soundAnalyse() {
 
     //--------------------------------------------------------------------------------
     //lots of confusing math that acts as a gradient and then set the color
-    r=(50+norm(newValue, 0, maxValue)*255*2);
-    g=(50+norm(newValue, 0, maxValue)*norm(newValue, 0, maxValue)*255);
-    b=(70+norm(newValue, 0, maxValue)*(-255));
-    w=(norm(newValue, 0, maxValue)*norm(newValue, 0, maxValue)*255*2);
+    r = constrain(50+norm(newValue, 0, maxValue)*(370), 0, 255);
+    g = constrain(50+norm(newValue, 0, maxValue)*norm(newValue, 0, maxValue)*220, 0, 255);
+    b = constrain((70+norm(newValue, 0, maxValue)*(maxValue/2-newValue)), 0, 255);
 
     //--------------------------------------------------------------------------------
     //set the last row of pixels in the pixel array to the new reading.
-    color col = color(constrain((r+w), 0, 255), constrain((g+w), 0, 255), constrain((b+w), 0, 255)); 
+    color col = color(r, g, b); 
     Pixels[resolution + (((resolution-1)-vLoc)*resolution-1)] = col;
   }
 }
