@@ -37,7 +37,7 @@ float gain = 1.0;
 //Set the number of inputs to wekinator here. 
 //This also controls to resolution of the plotter by keeping a 1x1 ratio
 // So, 900 inputs returns a resolutin of sqrt(900) = 30 * 30 px. 2500 inputs = resolution of 50 * 50 px
-int inputsToWek = 900; 
+int inputsToWek = 1600; 
 
 //--------------------------------------------------------------------------------
 //layout properties
