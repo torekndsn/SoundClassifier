@@ -1,3 +1,16 @@
+///////////////////////////////////////////////////////////////////////////
+//                                                                       //
+// This is a tool to analyse incoming sounds and draw live spectograms
+// with the purpose to classify sound with Wekinator. Several properties
+// can be changed live in the sketch; The frequenzy range, max amplitude,
+// min amplitude, and speed of the drawn spectogram. The tool is created
+// to experiment with sound and IML classification in a dynamic environment.
+// The intial techqinue used to make the spectogram was inspired by a
+// reddit-post by TTUporter:
+// https://www.reddit.com/r/processing/comments/4qtw7x/live_spectrogram/
+//                                                                       //
+///////////////////////////////////////////////////////////////////////////
+
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 import oscP5.*;
