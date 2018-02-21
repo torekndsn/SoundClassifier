@@ -10,8 +10,7 @@ class PWindow extends PApplet {
 
   //---------------------------------------------------------------------------------
   // Set sketch variables 
-  color red = color(255, 0, 0);
-  color yellow = color(200, 200, 0);
+  color[] colors = {#FAF3DD, #FFF05A, #FF6663, #4EA699, #9DD1F1, #30332E};
 
   //---------------------------------------------------------------------------------
   // Set the window size here
@@ -22,7 +21,7 @@ class PWindow extends PApplet {
   //---------------------------------------------------------------------------------
   // Set seutp properties
   void setup() {
-    background(150);
+    background(colors[0]);
     textAlign(CENTER, CENTER);
   }
 
@@ -32,24 +31,26 @@ class PWindow extends PApplet {
 
     switch(output) {
     case 1:
-      background(150);
+      background(colors[0]);
       break;
 
     case 2:
-      background(red);
+      background(colors[1]); // - "yellow"
       break;
 
     case 3: 
-      background(yellow);
+      background(colors[2]); // - "red"
       break;
 
     case 4: 
+      background(colors[3]); // - "green"
       break;
 
     case 5:
+      background(colors[4]); // - "blue"
       break;
     }
-    
+
     text("output " + output, width/2, height/2);
   }
 }

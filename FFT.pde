@@ -1,16 +1,11 @@
 void soundAnalyse() {
 
   //--------------------------------------------------------------------------------
-  //Perform a forward FFT on the samples in the input buffer. One for each type
+  //Perform a forward FFT on the samples in the input buffer.
   fft.forward(in.mix);
-  fftLin.forward(in.mix);
-  fftLog.forward(in.mix);
 
   //--------------------------------------------------------------------------------
   //freqCut makes it possible to select a hz range to analyze in the sketch
-  //Uncomment the type of fft analyse you want to use (raw, linea avrage, Logical avrage) see the minim documentation
-  // binSize = fftLin.avgSize() - freqCut;
-  // binSize = fftLog.avgSize() - freqCut;
   binSize = fft.specSize() - freqCut; // raw signal / full spectrum
 
   //--------------------------------------------------------------------------------
@@ -24,7 +19,7 @@ void soundAnalyse() {
 
     //--------------------------------------------------------------------------------
     //Find the amplitude of the index band
-    value = (int)Math.round(Math.max(0, 4*20* Math.log10(1000*fft.getBand(int(i/gain)))));
+    value = (int)Math.round(Math.max(0, 4*20* Math.log10(1000*fft.getBand(int(i)))));
 
     //--------------------------------------------------------------------------------
     //Uncomment to enable auto tuning/calibrating of the amplitude 

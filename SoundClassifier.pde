@@ -22,8 +22,7 @@ ControlP5 cp5;
 
 Minim minim;
 AudioInput in;
-FFT fft, fftLin, fftLog; // not all are used at ones,
-//but I've tried out different fft techniques provided by minim
+FFT fft;
 
 OscP5 oscP5;
 NetAddress dest;
@@ -44,7 +43,6 @@ int binSize;
 int freqCut = 0;
 int cutOff=400;
 int speed = 5; 
-float gain = 1.0;
 
 //--------------------------------------------------------------------------------
 //Set the number of inputs to wekinator here. 
@@ -109,14 +107,6 @@ void setup() {
   // But only one is activitly used at a time. See the FFT tab to select which one.
   fft = new FFT(in.bufferSize(), in.sampleRate());
   fft.window(FFT.HAMMING);
-
-  fftLin = new FFT(in.bufferSize(), in.sampleRate());
-  fftLin.window(FFT.HAMMING);
-  fftLin.linAverages( 300 );
-
-  fftLog = new FFT(in.bufferSize(), in.sampleRate());
-  fftLog.window(FFT.HAMMING);
-  fftLog.logAverages( 22, 60 );
 
   //Layout properties
   //--------------------------------------------------------------------------------
